@@ -5,7 +5,7 @@ from src.views.login_creator_view import LoginCreatorView
 
 
 def login_creator_composer():
-    conn = db_connection_handler()
+    conn = db_connection_handler.get_connection()
     model = UserRepository(conn)
     controller = LoginCreator(model)
     view = LoginCreatorView(controller)

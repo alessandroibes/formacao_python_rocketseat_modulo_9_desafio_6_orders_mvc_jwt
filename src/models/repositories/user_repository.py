@@ -12,10 +12,10 @@ class UserRepository(UserRepositoryInterface):
         cursor.execute(
             '''
             INSERT INTO users
-                (username, password, balance)
+                (username, password)
             VALUES
-                (?, ?, ?)
-            ''', (username, password, 0)
+                (?, ?)
+            ''', (username, password)
         )
         self.__conn.commit()
 

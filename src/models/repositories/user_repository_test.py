@@ -27,7 +27,7 @@ def test_registry_user():
     cursor = mock_connection.cursor.return_value
 
     assert "INSERT INTO users" in cursor.execute.call_args[0][0]
-    assert "(username, password, balance)" in cursor.execute.call_args[0][0]
+    assert "(username, password)" in cursor.execute.call_args[0][0]
     assert "VALUES" in cursor.execute.call_args[0][0]
     assert cursor.execute.call_args[0][1] == (username, password, 0)
 
