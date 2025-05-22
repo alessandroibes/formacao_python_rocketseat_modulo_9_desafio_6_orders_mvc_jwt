@@ -1,4 +1,4 @@
-from .user_registry import UserRegister
+from .user_register import UserRegister
 
 
 class MockUserRepository:
