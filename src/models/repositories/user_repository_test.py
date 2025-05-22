@@ -34,6 +34,24 @@ def test_registry_user():
     mock_connection.commit.assert_called_once()
 
 
+def test_get_user():
+    user_id = 1
+
+    mock_connection = MockConnection()
+    repo = UserRepository(mock_connection)
+
+    repo.get_user(user_id)
+
+    cursor = mock_connection.cursor.return_value
+
+    assert "SELECT id, username, password" in cursor.execute.call_args[0][0]
+    assert "FROM users" in cursor.execute.call_args[0][0]
+    assert "WHERE id = ?" in cursor.execute.call_args[0][0]
+    assert cursor.execute.call_args[0][1] == (user_id,)
+
+    cursor.fetchone.assert_called_once()
+
+
 def test_get_user_by_username():
     username = "teste"
 

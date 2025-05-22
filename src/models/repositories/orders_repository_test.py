@@ -1,7 +1,7 @@
 from datetime import datetime
 from unittest.mock import Mock
 
-from src.models.repositories.orders_repository import OrdesRepository
+from src.models.repositories.orders_repository import OrdersRepository
 
 
 class MockCursor:
@@ -22,7 +22,7 @@ def test_registry_order():
     description = "Pizza 4 Queijos"
 
     mock_connection = MockConnection()
-    repo = OrdesRepository(mock_connection)
+    repo = OrdersRepository(mock_connection)
 
     repo.registry_order(user_id, date_order, description)
 
@@ -40,7 +40,7 @@ def test_get_orders_by_user():
     user_id = 1
 
     mock_connection = MockConnection()
-    repo = OrdesRepository(mock_connection)
+    repo = OrdersRepository(mock_connection)
 
     repo.get_orders_by_user(user_id)
 

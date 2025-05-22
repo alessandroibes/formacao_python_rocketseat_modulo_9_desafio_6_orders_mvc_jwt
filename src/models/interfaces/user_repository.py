@@ -8,5 +8,9 @@ class UserRepositoryInterface(ABC):
         pass
 
     @abstractmethod
+    def get_user(self, user_id: str) -> tuple[int, str, str]:
+        pass
+
+    @abstractmethod
     def get_user_by_username(self, username: str) -> tuple[int, int, str]:
         pass
