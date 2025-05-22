@@ -11,7 +11,7 @@ class OrderRegister(OrderRegisterInterface):
         self.__order_repository = order_repository
         self.__user_repository = user_repository
     
-    def registry(self, user_id: int, description: str) -> None:
+    def registry(self, user_id: int, description: str) -> dict:
         user = self.__get_user(user_id)
         date_order = datetime.now(timezone.utc)
         self.__registry_order_in_db(user[0], date_order, description)
