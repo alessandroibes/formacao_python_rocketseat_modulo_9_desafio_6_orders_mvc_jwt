@@ -10,7 +10,7 @@ class OrderRegisterView(ViewInterface):
         self.__controller = controller
     
     def handle(self, http_request: HttpRequest) -> HttpResponse:
-        user_id = http_request.params.get("user_id")
+        user_id = http_request.body.get("user_id")
         description = http_request.body.get("description")
 
         self.__validate_inputs(user_id, description)
@@ -22,6 +22,6 @@ class OrderRegisterView(ViewInterface):
         if (
             not user_id
             or not description
-            or not user_id.isdigit()
+            or not isinstance(user_id, int)
             or not isinstance(description, str)
         ): raise HttpBadRequestError("Invalid Input")
