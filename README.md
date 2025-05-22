@@ -17,13 +17,13 @@ Ao fazer login, o usuário recebe um token JWT que contém as seguintes informa�
 ## Sobre os endpoints
 
 - [ ] Deve ser possível listar os pedidos do usuário autenticado
-- [ ] Deve ser possível adicionar um novo pedido.
+- [✓] Deve ser possível adicionar um novo pedido.
 - [ ] Um usuário só pode ter acesso aos seus pedidos e não de outros.
 
 ## Sobre as tabelas no banco
 
-- [ ] Os usuários devem possuir um id, o username e a senha que deverá ser armazenada.
-- [ ] Os pedidos por sua vez, deve ter uma relação com os usuários, descrição, id e a data na qual o pedido foi criado no banco.
+- [✓] Os usuários devem possuir um id, o username e a senha que deverá ser armazenada.
+- [✓] Os pedidos por sua vez, deve ter uma relação com os usuários, descrição, id e a data na qual o pedido foi criado no banco.
 
 ## Conceitos utilizados
 
