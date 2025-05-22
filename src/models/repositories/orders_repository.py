@@ -7,7 +7,19 @@ class OrdesRepository(OrdersRepositoryInterface):
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn
 
-    def get_order_by_user(self, user_id: int) -> tuple[int, str, str, str]:
+    def registry_order(self, user_id: int, date_order: str, description: str) -> None:
+        cursor = self.__conn.cursor()
+        cursor.execute(
+            '''
+            INSERT INTO orders
+                (user_id, date_order, description)
+            VALUES
+                (?, ?, ?)
+            ''', (user_id, date_order, description)
+        )
+        self.__conn.commit()
+
+    def get_orders_by_user(self, user_id: int) -> tuple[int, str, str, str]:
         cursor = self.__conn.cursor()
         cursor.execute(
             """

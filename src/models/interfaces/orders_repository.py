@@ -4,5 +4,9 @@ from abc import ABC, abstractmethod
 class OrdersRepositoryInterface(ABC):
 
     @abstractmethod
-    def get_order_by_user(self, user_id: int) -> tuple[int, str, str, str]:
+    def registry_order(self, user_id: int, date_order: str, description: str) -> None:
+        pass
+
+    @abstractmethod
+    def get_orders_by_user(self, user_id: int) -> tuple[int, str, str, str]:
         pass
