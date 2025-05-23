@@ -19,7 +19,7 @@ class OrdersRepository(OrdersRepositoryInterface):
         )
         self.__conn.commit()
 
-    def get_orders_by_user(self, user_id: int) -> tuple[int, str, str, str]:
+    def get_orders_by_user(self, user_id: int) -> list[tuple[int, str, str, str]]:
         cursor = self.__conn.cursor()
         cursor.execute(
             """
@@ -29,6 +29,6 @@ class OrdersRepository(OrdersRepositoryInterface):
             """, (user_id,)
         )
 
-        order = cursor.fetchone()
+        orders = cursor.fetchall()
 
-        return order
+        return orders

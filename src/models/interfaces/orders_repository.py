@@ -8,5 +8,5 @@ class OrdersRepositoryInterface(ABC):
         pass
 
     @abstractmethod
-    def get_orders_by_user(self, user_id: int) -> tuple[int, str, str, str]:
+    def get_orders_by_user(self, user_id: int) -> list[tuple[int, str, str, str]]:
         pass
